@@ -569,7 +569,7 @@ function renderStapleChips() {
         existing.qty += (catItem.defaultQty || 1);
         showToast(`Kuantitas ${existing.name} ditambah!`, '➕');
       } else {
-        state.cart.push({
+        state.cart.unshift({
           id: `cart-${Date.now()}`,
           name: catItem.name,
           category: catItem.category,
@@ -707,7 +707,7 @@ function saveItemFromModal(e) {
     }
   } else {
     // Add new
-    state.cart.push({
+    state.cart.unshift({
       id: `cart-${Date.now()}`,
       name,
       category,
@@ -1014,7 +1014,7 @@ function renderCatalogTable(filterQuery = '') {
       const catItem = state.catalog.find(c => c.id === id);
       if (!catItem) return;
 
-      state.cart.push({
+      state.cart.unshift({
         id: `cart-${Date.now()}`,
         name: catItem.name,
         category: catItem.category,
