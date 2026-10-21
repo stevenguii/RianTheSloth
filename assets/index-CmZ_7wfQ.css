@@ -1,0 +1,1540 @@
+/* ==========================================================================
+   MICROSOFT EXCEL & SPREADSHEET WORKSPACE THEME
+   Smart Grocery & Budget Safety Tracker (Smart_Grocery_Budget_Tracker.xlsx)
+   Theme: Office 365 / Excel Fluent UI (Green Ribbon, Gridlines, Sheet Tabs)
+   ========================================================================== */
+
+@import "https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap";
+
+:root {
+  --font-main: "Segoe UI", -apple-system, BlinkMacSystemFont, "Calibri", "Aptos", Arial, sans-serif;
+  --font-display: "Segoe UI", var(--font-main);
+  --font-mono: "JetBrains Mono", "Consolas", "Courier New", monospace;
+
+  /* Excel Signature Palette */
+  --excel-green-dark: #0e6a37;
+  --excel-green: #107c41;
+  --excel-green-light: #21a366;
+  --excel-green-hover: #138749;
+  --excel-green-subtle: #e8f5e9;
+
+  /* Office Canvas & Grid */
+  --bg-desktop: #e6e6e6;
+  --bg-app: #ffffff;
+  --bg-ribbon: #f3f2f1;
+  --bg-grid-header: #f8f9fa;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f3f8f4;
+  --bg-card-elevated: #fafafa;
+  --bg-glass: rgba(255, 255, 255, 0.96);
+
+  /* Gridlines & Borders */
+  --border-grid: #e1dfdd;
+  --border-subtle: #edebe9;
+  --border-medium: #c8c6c4;
+  --border-dark: #8a8886;
+  --border-focus: #107c41;
+
+  /* Excel Conditional Formatting Colors */
+  --color-success: #0e6a37;
+  --color-success-bg: #c6efce;
+  --color-success-border: #a4e4b0;
+
+  --color-warning: #9c5700;
+  --color-warning-bg: #ffeb9c;
+  --color-warning-border: #fadc7a;
+
+  --color-critical: #c55a11;
+  --color-critical-bg: #fce4d6;
+
+  --color-danger: #9c0006;
+  --color-danger-bg: #ffc7ce;
+  --color-danger-border: #f8a1ac;
+
+  --color-primary: #107c41;
+  --color-primary-light: #21a366;
+  --color-primary-glow: rgba(16, 124, 65, 0.25);
+
+  --text-main: #201f1e;
+  --text-secondary: #484644;
+  --text-muted: #605e5c;
+  --text-invert: #ffffff;
+
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-full: 9999px;
+
+  --bottom-nav-height: 52px;
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 12px 28px rgba(0, 0, 0, 0.22);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  background-color: var(--bg-desktop);
+  width: 100%;
+  height: 100%;
+  color: var(--text-main);
+  font-family: var(--font-main);
+  font-size: 13.5px;
+  line-height: 1.45;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+input, button, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+/* ==========================================================================
+   Excel Application Window Layout
+   ========================================================================== */
+#app-viewport-wrapper {
+  background-color: #edebe9;
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+  background-size: 24px 24px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  padding: 8px;
+}
+
+.ambient-glow {
+  display: none !important;
+}
+
+/* Main Excel Workbook Window Frame */
+#mobile-container {
+  background-color: var(--bg-app);
+  z-index: 10;
+  flex-direction: column;
+  width: 100%;
+  max-width: 780px;
+  height: 100%;
+  max-height: 98vh;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #c8c6c4;
+  border-radius: 8px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(0, 0, 0, 0.08);
+}
+
+@media (max-width: 480px) {
+  #mobile-container {
+    max-height: 100vh;
+    border-radius: 0;
+    border: none;
+  }
+}
+
+/* ==========================================================================
+   Excel Top Title Bar (Green Header) & Window Controls
+   ========================================================================== */
+.mobile-status-bar {
+  background-color: var(--excel-green-dark);
+  color: #ffffff;
+  padding: 6px 14px;
+  font-size: 0.76rem;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.mobile-status-bar span#liveClock {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #d1f2d9;
+}
+
+/* Notch pill transformed into Excel Title Banner */
+.notch-pill {
+  background-color: transparent;
+  border-radius: 0;
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: none;
+}
+
+.notch-pill::before {
+  content: "📊 Smart_Grocery_Tracker.xlsx - Excel (AutoSave ON)";
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.01em;
+}
+
+.notch-dot {
+  background-color: #21a366;
+  border: 1px solid #ffffff;
+  width: 7px;
+  height: 7px;
+}
+
+/* ==========================================================================
+   Excel Ribbon Toolbar & Header (F-05 Safety Cap)
+   ========================================================================== */
+.app-header {
+  background-color: #f3f2f1;
+  border-bottom: 1px solid var(--border-grid);
+  padding: 10px 16px;
+  z-index: 20;
+}
+
+/* Ribbon Tabs Emulation */
+.brand-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.brand-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-icon {
+  background-color: var(--excel-green);
+  color: #ffffff;
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.brand-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.brand-text h1 {
+  font-size: 1.12rem;
+  font-weight: 800;
+  color: var(--excel-green-dark);
+  letter-spacing: -0.01em;
+}
+
+.brand-text span {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  display: block;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Cloud badge as Excel Online Status */
+.cloud-realtime-badge {
+  background-color: var(--color-success-bg);
+  border: 1px solid var(--color-success-border);
+  color: var(--color-success);
+  border-radius: var(--radius-sm);
+  padding: 4px 8px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.pulsing-live-dot {
+  background-color: var(--color-success);
+  border-radius: 50%;
+  width: 6px;
+  height: 6px;
+}
+
+.icon-btn-header {
+  background-color: #ffffff;
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-sm);
+  width: 32px;
+  height: 32px;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.icon-btn-header:hover {
+  background-color: var(--excel-green-subtle);
+  border-color: var(--excel-green);
+  color: var(--excel-green);
+}
+
+/* ==========================================================================
+   Formula Bar & KPI Dashboard Card (F-05 Safety Cap)
+   ========================================================================== */
+.safety-cap-card {
+  background: #ffffff;
+  border: 1px solid var(--border-grid);
+  border-left: 4px solid var(--excel-green);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+.safety-cap-card.budget-danger {
+  border-left-color: var(--color-danger);
+  background-color: #fff9fa;
+  animation: excel-danger-pulse 2s infinite;
+}
+
+.safety-cap-card.budget-critical {
+  border-left-color: var(--color-critical);
+}
+
+.safety-cap-card.budget-warning {
+  border-left-color: var(--color-warning);
+}
+
+@keyframes excel-danger-pulse {
+  0%, 100% { box-shadow: 0 0 0 1px var(--color-danger-border); }
+  50% { box-shadow: 0 0 12px rgba(244, 63, 94, 0.35); }
+}
+
+.safety-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+/* Excel Conditional Formatting Badge */
+.safety-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.safety-badge.safe {
+  background-color: var(--color-success-bg);
+  color: var(--color-success);
+  border: 1px solid var(--color-success-border);
+}
+
+.safety-badge.warning {
+  background-color: var(--color-warning-bg);
+  color: var(--color-warning);
+  border: 1px solid var(--color-warning-border);
+}
+
+.safety-badge.critical {
+  background-color: var(--color-critical-bg);
+  color: var(--color-critical);
+  border: 1px solid #f8b896;
+}
+
+.safety-badge.danger {
+  background-color: var(--color-danger-bg);
+  color: var(--color-danger);
+  border: 1px solid var(--color-danger-border);
+}
+
+.budget-edit-trigger {
+  color: var(--excel-green);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 0.76rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.budget-edit-trigger:hover {
+  text-decoration: underline;
+}
+
+/* Metric Display formatted like Excel Cell Numbers */
+.budget-figures {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 8px;
+}
+
+.figure-current {
+  font-family: var(--font-mono);
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: #201f1e;
+  letter-spacing: -0.02em;
+}
+
+.figure-limit {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+/* Excel Style Data Bar / Progress Bar */
+.progress-container {
+  background-color: #edebe9;
+  border: 1px solid var(--border-medium);
+  height: 8px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+
+.progress-fill {
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.progress-fill.safe {
+  background-color: var(--excel-green);
+}
+
+.progress-fill.warning {
+  background-color: var(--color-warning);
+}
+
+.progress-fill.critical {
+  background-color: var(--color-critical);
+}
+
+.progress-fill.danger {
+  background-color: var(--color-danger);
+}
+
+.safety-footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.74rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.safety-alert-text.safe { color: var(--color-success); font-weight: 700; }
+.safety-alert-text.warning { color: var(--color-warning); font-weight: 700; }
+.safety-alert-text.danger { color: var(--color-danger); font-weight: 800; }
+
+/* ==========================================================================
+   Spreadsheet Grid Content Area
+   ========================================================================== */
+#content-area {
+  background-color: #ffffff;
+  padding: 12px 16px calc(var(--bottom-nav-height) + 20px);
+  flex: 1;
+  position: relative;
+  overflow: hidden auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+#content-area::-webkit-scrollbar {
+  width: 8px;
+}
+
+#content-area::-webkit-scrollbar-thumb {
+  background-color: #c8c6c4;
+  border-radius: 4px;
+}
+
+.view-section {
+  display: none;
+}
+
+.view-section.active {
+  display: block;
+}
+
+/* Excel Formula Bar Header fx */
+.cart-summary-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f8f9fa;
+  border: 1px solid var(--border-grid);
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  margin-bottom: 12px;
+  font-family: var(--font-mono);
+}
+
+.cart-count-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--excel-green-dark);
+}
+
+.cart-count-badge::before {
+  content: "fx | =SUM(Troli):";
+  color: var(--text-muted);
+  font-weight: 600;
+  margin-right: 4px;
+}
+
+.cart-savings-chip {
+  background-color: var(--color-success-bg);
+  border: 1px solid var(--color-success-border);
+  color: var(--color-success);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  font-size: 0.74rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* ==========================================================================
+   Spreadsheet Table Rows (Cart Item Cards)
+   ========================================================================== */
+.cart-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cart-item-card {
+  background-color: #ffffff;
+  border: 1px solid var(--border-grid);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: all 0.15s ease;
+}
+
+.cart-item-card:hover {
+  background-color: #fcfdfc;
+  border-color: var(--excel-green);
+  box-shadow: 0 2px 8px rgba(16, 124, 65, 0.12);
+}
+
+.item-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.item-name-group {
+  flex: 1;
+}
+
+.item-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #201f1e;
+  line-height: 1.3;
+}
+
+.item-tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.category-badge {
+  background-color: #f3f2f1;
+  color: #484644;
+  border: 1px solid #e1dfdd;
+  border-radius: 3px;
+  padding: 1px 6px;
+  font-size: 0.68rem;
+  font-weight: 600;
+}
+
+.unit-badge {
+  background-color: var(--excel-green-subtle);
+  color: var(--excel-green-dark);
+  border: 1px solid #c7e6d0;
+  border-radius: 3px;
+  padding: 1px 6px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* Excel Style Fluctuation Badges (Conditional Formatting) */
+.comparator-pill {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 3px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.comparator-pill.badge-up {
+  background-color: var(--color-danger-bg);
+  color: var(--color-danger);
+  border: 1px solid var(--color-danger-border);
+}
+
+.comparator-pill.badge-down {
+  background-color: var(--color-success-bg);
+  color: var(--color-success);
+  border: 1px solid var(--color-success-border);
+}
+
+.comparator-pill.badge-equal {
+  background-color: #f3f2f1;
+  color: var(--text-secondary);
+  border: 1px solid #d2d0ce;
+}
+
+.comparator-pill.badge-new {
+  background-color: #edebe9;
+  color: #323130;
+  border: 1px solid #c8c6c4;
+}
+
+.comparator-pill svg {
+  width: 12px;
+  height: 12px;
+}
+
+.item-price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  border-bottom: 1px dotted var(--border-grid);
+  padding-bottom: 6px;
+  font-family: var(--font-mono);
+}
+
+.unit-price-box {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.original-price-strikethrough {
+  color: #a19f9d;
+  font-size: 0.78rem;
+  text-decoration: line-through;
+}
+
+.final-unit-price {
+  color: #201f1e;
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.price-unit-label {
+  color: #605e5c;
+  font-size: 0.72rem;
+}
+
+.discount-breakdown-box {
+  background-color: var(--color-warning-bg);
+  color: var(--color-warning);
+  border: 1px solid var(--color-warning-border);
+  border-radius: 3px;
+  padding: 3px 6px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.discount-text {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.discount-saved-amt {
+  color: var(--color-success);
+}
+
+/* Card Bottom Controls (Qty Stepper & Subtotal) */
+.item-card-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 2px;
+}
+
+.stepper-container {
+  background-color: #f8f9fa;
+  border: 1px solid var(--border-medium);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  height: 32px;
+}
+
+.stepper-btn {
+  background-color: #edebe9;
+  color: #201f1e;
+  width: 28px;
+  height: 100%;
+  border: none;
+  cursor: pointer;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.1s;
+}
+
+.stepper-btn:hover {
+  background-color: #c8c6c4;
+}
+
+.stepper-btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+.stepper-value-input {
+  width: 36px;
+  height: 100%;
+  text-align: center;
+  background: transparent;
+  border: none;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #201f1e;
+}
+
+.stepper-value-input:focus {
+  outline: 2px solid var(--excel-green);
+}
+
+.item-subtotal-group {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+}
+
+.subtotal-label {
+  font-size: 0.62rem;
+  color: var(--text-muted);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.subtotal-amount {
+  font-family: var(--font-mono);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--excel-green-dark);
+}
+
+.item-action-btns {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.action-mini-btn {
+  width: 30px;
+  height: 30px;
+  background-color: #f3f2f1;
+  border: 1px solid #e1dfdd;
+  border-radius: 4px;
+  color: #605e5c;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+}
+
+.action-mini-btn:hover {
+  background-color: #edebe9;
+  color: #201f1e;
+}
+
+.action-mini-btn.btn-delete:hover {
+  background-color: var(--color-danger-bg);
+  border-color: var(--color-danger-border);
+  color: var(--color-danger);
+}
+
+/* Empty State */
+.empty-cart-state {
+  text-align: center;
+  background-color: #faf9f8;
+  border: 1px dashed var(--border-medium);
+  border-radius: 4px;
+  padding: 36px 16px;
+  color: var(--text-muted);
+  margin-top: 10px;
+}
+
+.empty-cart-icon {
+  width: 44px;
+  height: 44px;
+  color: var(--excel-green);
+  margin: 0 auto 10px;
+  opacity: 0.7;
+}
+
+/* Checkout Button as Excel Execute Action */
+.cart-action-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.btn-checkout {
+  background-color: var(--excel-green);
+  color: #ffffff;
+  border: 1px solid var(--excel-green-dark);
+  border-radius: var(--radius-sm);
+  height: 44px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.15s;
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-checkout:hover {
+  background-color: var(--excel-green-hover);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-checkout:active {
+  background-color: var(--excel-green-dark);
+}
+
+/* FAB as Excel "Insert Record / Row" Tool */
+.fab-quick-add {
+  position: fixed;
+  bottom: calc(var(--bottom-nav-height) + 14px);
+  right: calc(50% - 370px);
+  background-color: var(--excel-green);
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  border-radius: var(--radius-sm);
+  padding: 0 16px;
+  height: 40px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  z-index: 35;
+  transition: all 0.15s;
+}
+
+@media (max-width: 800px) {
+  .fab-quick-add {
+    right: 16px;
+  }
+}
+
+.fab-quick-add:hover {
+  background-color: var(--excel-green-hover);
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   Excel Worksheet Tabs at Bottom (Sheet1: Belanja, Sheet2: Riwayat, etc.)
+   ========================================================================== */
+.floating-bottom-nav {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: var(--bottom-nav-height);
+  background-color: #f3f2f1;
+  border-top: 1px solid var(--border-grid);
+  display: flex;
+  align-items: stretch;
+  padding: 0;
+  z-index: 30;
+}
+
+/* Styled like authentic Excel Sheet Tabs */
+.nav-tab-btn {
+  flex: 1;
+  background-color: #e1dfdd;
+  border: 1px solid #c8c6c4;
+  border-bottom: none;
+  border-top: none;
+  color: #605e5c;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0 12px;
+  position: relative;
+  transition: all 0.15s;
+}
+
+.nav-tab-btn:hover {
+  background-color: #edebe9;
+  color: #201f1e;
+}
+
+.nav-tab-btn.active {
+  background-color: #ffffff;
+  color: var(--excel-green-dark);
+  font-weight: 800;
+  border-bottom: 3px solid var(--excel-green);
+}
+
+.nav-tab-btn.active svg {
+  color: var(--excel-green);
+}
+
+.nav-tab-label {
+  font-size: 0.8rem;
+}
+
+.nav-badge-count {
+  background-color: var(--excel-green);
+  color: #ffffff;
+  border-radius: 10px;
+  padding: 1px 6px;
+  font-size: 0.65rem;
+  font-weight: 800;
+  margin-left: 4px;
+}
+
+/* ==========================================================================
+   History (TAB 2) & Budget / Settings (TAB 3)
+   ========================================================================== */
+.section-header-box {
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--border-grid);
+  padding-bottom: 8px;
+}
+
+.section-title {
+  font-size: 1.18rem;
+  font-weight: 800;
+  color: #201f1e;
+}
+
+.section-subtitle {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.stat-card {
+  background-color: #ffffff;
+  border: 1px solid var(--border-grid);
+  border-radius: var(--radius-sm);
+  padding: 12px;
+}
+
+.stat-card-title {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.stat-card-val {
+  font-family: var(--font-mono);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #201f1e;
+  margin-top: 2px;
+}
+
+.stat-card-val.savings {
+  color: var(--excel-green);
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.history-card {
+  background-color: #ffffff;
+  border: 1px solid var(--border-grid);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.history-card-header {
+  padding: 10px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  background-color: #faf9f8;
+}
+
+.history-card-header:hover {
+  background-color: #f3f2f1;
+}
+
+.history-date {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.history-title {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #201f1e;
+}
+
+.history-amount {
+  font-family: var(--font-mono);
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--excel-green-dark);
+  text-align: right;
+}
+
+.history-card-body {
+  border-top: 1px solid var(--border-grid);
+  background-color: #ffffff;
+  padding: 10px 14px;
+  display: none;
+}
+
+.history-card-body.open {
+  display: block;
+}
+
+.history-items-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.history-items-table td {
+  padding: 6px 4px;
+  border-bottom: 1px solid var(--border-subtle);
+  font-size: 0.82rem;
+}
+
+.history-items-table td.name { color: #201f1e; font-weight: 600; }
+.history-items-table td.qty { color: var(--text-muted); text-align: center; }
+.history-items-table td.price { text-align: right; font-family: var(--font-mono); font-weight: 700; }
+
+.history-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.btn-secondary-sm {
+  background-color: #f3f2f1;
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-sm);
+  color: #201f1e;
+  padding: 6px 12px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.btn-secondary-sm:hover {
+  background-color: #edebe9;
+  border-color: #8a8886;
+}
+
+/* Budget Configuration Card */
+.budget-config-card, .price-db-section, .backup-section, .firebase-sync-card {
+  background-color: #ffffff;
+  border: 1px solid var(--border-grid);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+  margin-bottom: 12px;
+}
+
+.config-group {
+  margin-bottom: 12px;
+}
+
+.config-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #201f1e;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.input-with-prefix {
+  background-color: #ffffff;
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding: 0 10px;
+}
+
+.input-with-prefix:focus-within {
+  border-color: var(--excel-green);
+  outline: 1px solid var(--excel-green);
+}
+
+.input-prefix {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--excel-green);
+  margin-right: 6px;
+}
+
+.input-currency-large {
+  border: none;
+  background: transparent;
+  width: 100%;
+  font-family: var(--font-mono);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #201f1e;
+}
+
+.input-currency-large:focus {
+  outline: none;
+}
+
+.budget-preset-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.preset-chip {
+  background-color: #f3f2f1;
+  border: 1px solid #d2d0ce;
+  border-radius: var(--radius-sm);
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #323130;
+  cursor: pointer;
+}
+
+.preset-chip:hover {
+  background-color: var(--excel-green-subtle);
+  border-color: var(--excel-green);
+  color: var(--excel-green-dark);
+}
+
+.preset-chip.active {
+  background-color: var(--excel-green);
+  border-color: var(--excel-green-dark);
+  color: #ffffff;
+}
+
+.search-input-box {
+  background-color: #ffffff;
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 10px;
+  height: 36px;
+  margin: 8px 0;
+}
+
+.search-input-box input {
+  border: none;
+  background: transparent;
+  width: 100%;
+  font-size: 0.85rem;
+  color: #201f1e;
+}
+
+.search-input-box input:focus {
+  outline: none;
+}
+
+.db-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+.db-item-row {
+  background-color: #faf9f8;
+  border: 1px solid var(--border-subtle);
+  border-radius: 3px;
+  padding: 8px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.db-item-name {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #201f1e;
+}
+
+.db-item-meta {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.db-item-price {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--excel-green-dark);
+}
+
+/* ==========================================================================
+   Excel Dialog Windows (Modals)
+   ========================================================================== */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.45);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
+  padding: 16px;
+}
+
+.modal-backdrop.active {
+  display: flex;
+}
+
+.modal-sheet {
+  background-color: #ffffff;
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-sm);
+  width: 100%;
+  max-width: 480px;
+  max-height: 90vh;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.modal-handle-bar {
+  display: none;
+}
+
+/* Office Dialog Title Bar */
+.modal-sheet-header {
+  background-color: #f3f2f1;
+  border-bottom: 1px solid var(--border-grid);
+  padding: 10px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #201f1e;
+}
+
+.modal-close-btn {
+  background: transparent;
+  border: none;
+  color: #605e5c;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+}
+
+.modal-close-btn:hover {
+  background-color: #e81123;
+  color: #ffffff;
+}
+
+.modal-sheet-content {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow-y: auto;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.form-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #323130;
+}
+
+.form-input-text {
+  background-color: #ffffff;
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-sm);
+  padding: 8px 10px;
+  font-size: 0.88rem;
+  color: #201f1e;
+}
+
+.form-input-text:focus {
+  border-color: var(--excel-green);
+  outline: 1px solid var(--excel-green);
+}
+
+.quick-chip-scroll {
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.quick-suggest-chip {
+  background-color: #f3f2f1;
+  border: 1px solid #d2d0ce;
+  border-radius: 3px;
+  padding: 4px 8px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #323130;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.quick-suggest-chip:hover {
+  background-color: var(--excel-green-subtle);
+  border-color: var(--excel-green);
+  color: var(--excel-green-dark);
+}
+
+.pill-selector-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.pill-option {
+  background-color: #f8f9fa;
+  border: 1px solid var(--border-medium);
+  border-radius: 3px;
+  padding: 5px 10px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #484644;
+  cursor: pointer;
+}
+
+.pill-option:hover {
+  background-color: #edebe9;
+}
+
+.pill-option.selected {
+  background-color: var(--excel-green);
+  border-color: var(--excel-green-dark);
+  color: #ffffff;
+}
+
+.live-comparator-card {
+  background-color: #f8f9fa;
+  border: 1px solid var(--border-grid);
+  border-radius: 4px;
+  padding: 8px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.comparator-title {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.discount-calc-card {
+  background-color: #fff9ea;
+  border: 1px solid #f9df88;
+  border-radius: 4px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.discount-calc-preview {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #7a4600;
+}
+
+.btn-submit-modal {
+  background-color: var(--excel-green);
+  color: #ffffff;
+  border: 1px solid var(--excel-green-dark);
+  border-radius: var(--radius-sm);
+  height: 40px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.btn-submit-modal:hover {
+  background-color: var(--excel-green-hover);
+}
+
+/* Digital Receipt Styled as Excel Worksheet Print Preview */
+.digital-receipt-box {
+  background-color: #ffffff;
+  border: 1px solid var(--border-medium);
+  padding: 16px;
+  font-family: var(--font-mono);
+}
+
+.receipt-header {
+  text-align: center;
+  border-bottom: 2px solid #201f1e;
+  padding-bottom: 8px;
+  margin-bottom: 10px;
+}
+
+.receipt-header h3 {
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.receipt-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.8rem;
+  margin-bottom: 10px;
+}
+
+.receipt-item-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.receipt-totals {
+  border-top: 1px dashed #605e5c;
+  padding-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.82rem;
+}
+
+.receipt-total-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.receipt-total-row.grand {
+  font-weight: 800;
+  font-size: 1rem;
+  border-top: 2px solid #201f1e;
+  padding-top: 6px;
+  color: var(--excel-green-dark);
+}
+
+/* Toasts */
+.toast-container {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.toast-msg {
+  background-color: #323130;
+  color: #ffffff;
+  border-left: 4px solid var(--excel-green);
+  border-radius: var(--radius-sm);
+  padding: 8px 14px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
