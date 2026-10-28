@@ -214,41 +214,7 @@ function yZ(){$.cart=b.getCart(),$.budgetLimit=b.getBudget(),$.history=b.getHist
         </button>
       </div>
     </div>
-  `).join(``)}function DZ(){let e=document.querySelectorAll(`.nav-tab-btn`),t=document.querySelectorAll(`.view-section`),n=document.getElementById(`fabQuickAdd`);e.forEach(r=>{r.addEventListener(`click`,()=>{let i=r.getAttribute(`data-tab`);$.currentTab=i,e.forEach(e=>e.classList.remove(`active`)),r.classList.add(`active`),t.forEach(e=>{e.id===i?e.classList.add(`active`):e.classList.remove(`active`)}),i===`view-shopping`?n.style.display=`flex`:n.style.display=`none`,bZ()})})}function OZ(){let e=document.getElementById(`btnOpenBudgetModal`),t=document.getElementById(`btnQuickEditBudget`),n=document.getElementById(`budgetModalBackdrop`),r=document.getElementById(`btnCloseBudgetModal`),i=document.getElementById(`btnSaveModalBudget`),a=document.getElementById(`inputModalBudget`),o=()=>{a.value=$.budgetLimit,n.classList.add(`active`)};e.addEventListener(`click`,o),t.addEventListener(`click`,o),r.addEventListener(`click`,()=>{n.classList.remove(`active`)}),i.addEventListener(`click`,()=>{let e=Number(a.value);e>0&&($.budgetLimit=e,b.saveBudget(e),CZ(),n.classList.remove(`active`),pZ(e),UZ(`Batas anggaran berhasil diperbarui & disinkronkan!`,`success`))}),n.querySelectorAll(`.preset-chip`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.getAttribute(`data-preset`);t&&(a.value=t)})}),document.getElementById(`btnHelpPwa`).addEventListener(`click`,()=>{UZ(`Aplikasi PWA Siap! Sinkronisasi otomatis ke Cloud Firestore aktif.`,`success`)})}function kZ(){let e=document.getElementById(`cartItemsContainer`);e.addEventListener(`click`,e=>{let t=e.target.closest(`.btn-step-plus`),n=e.target.closest(`.btn-step-minus`),r=e.target.closest(`.btn-delete-item`),i=e.target.closest(`.btn-edit-item`);t?AZ(t.getAttribute(`data-id`),1):n?AZ(n.getAttribute(`data-id`),-1):r?MZ(r.getAttribute(`data-id`)):i&&FZ(i.getAttribute(`data-id`))}),e.addEventListener(`change`,e=>{e.target.classList.contains(`item-qty-input`)&&jZ(e.target.getAttribute(`data-id`),Math.max(1,parseInt(e.target.value,10)||1))}),let cm=document.getElementById("clearCartModalBackdrop"),
-    cmb=document.getElementById("btnCloseClearCartModal"),
-    cmc=document.getElementById("btnCancelClearCart"),
-    cmok=document.getElementById("btnConfirmClearCart"),
-    cmcnt=document.getElementById("clearCartCountText"),
-    cmtot=document.getElementById("clearCartTotalValueText");
-
-document.getElementById("btnClearCart").addEventListener("click",()=>{
-  if($.cart.length===0){
-    UZ("Troli sudah kosong.","warning");
-    return;
-  }
-  let tot=0,cnt=0;
-  $.cart.forEach(e=>{
-    let t=Number(e.qty)||1,n=Number(e.price)||0,r=kP(n,e.discount,e.discountType);
-    tot+=r.finalUnitPrice*t;
-    cnt+=t;
-  });
-  cmcnt&&(cmcnt.textContent=cnt+" Item ("+$.cart.length+" Jenis Produk)");
-  cmtot&&(cmtot.textContent=y(tot));
-  cm&&cm.classList.add("active");
-  bZ();
-});
-
-cmb&&cmb.addEventListener("click",()=>{cm&&cm.classList.remove("active")});
-cmc&&cmc.addEventListener("click",()=>{cm&&cm.classList.remove("active")});
-cm&&cm.addEventListener("click",e=>{e.target===cm&&cm.classList.remove("active")});
-cmok&&cmok.addEventListener("click",()=>{
-  $.cart=[];
-  b.saveCart($.cart);
-  SZ();
-  dZ([]);
-  cm&&cm.classList.remove("active");
-  UZ("Seluruh belanjaan troli telah berhasil dikosongkan.","warning");
-}),document.getElementById(`btnEmptyAdd`).addEventListener(`click`,()=>{PZ()}),document.getElementById(`fabQuickAdd`).addEventListener(`click`,()=>{PZ()})}function AZ(e,t){let n=$.cart.find(t=>t.id===e);if(!n)return;let r=(Number(n.qty)||1)+t;r<=0?MZ(e):(n.qty=r,b.saveCart($.cart),SZ(),dZ($.cart))}function jZ(e,t){let n=$.cart.find(t=>t.id===e);n&&(n.qty=Math.max(1,t),b.saveCart($.cart),SZ(),dZ($.cart))}function MZ(e){$.cart=$.cart.filter(t=>t.id!==e),b.saveCart($.cart),SZ(),dZ($.cart),UZ(`Barang dihapus dari troli`,`warning`)}function NZ(){let e=document.getElementById(`itemModalBackdrop`),t=document.getElementById(`btnCloseItemModal`),n=document.getElementById(`itemForm`),r=document.getElementById(`inputItemName`),i=document.getElementById(`inputItemPrice`),a=document.getElementById(`inputItemQty`),o=document.getElementById(`inputItemDiscount`),s=document.getElementById(`selectDiscountType`),c=document.getElementById(`inputItemCategory`),l=document.getElementById(`inputItemUnit`),u=document.getElementById(`inputItemNote`);document.getElementById(`editItemId`);let d=document.getElementById(`modalQtyMinus`),f=document.getElementById(`modalQtyPlus`),p=document.getElementById(`categoryPillSelector`);p.innerHTML=IP.map(e=>`
+  `).join(``)}function DZ(){let e=document.querySelectorAll(`.nav-tab-btn`),t=document.querySelectorAll(`.view-section`),n=document.getElementById(`fabQuickAdd`);e.forEach(r=>{r.addEventListener(`click`,()=>{let i=r.getAttribute(`data-tab`);$.currentTab=i,e.forEach(e=>e.classList.remove(`active`)),r.classList.add(`active`),t.forEach(e=>{e.id===i?e.classList.add(`active`):e.classList.remove(`active`)}),i===`view-shopping`?n.style.display=`flex`:n.style.display=`none`,bZ()})})}function OZ(){let e=document.getElementById(`btnOpenBudgetModal`),t=document.getElementById(`btnQuickEditBudget`),n=document.getElementById(`budgetModalBackdrop`),r=document.getElementById(`btnCloseBudgetModal`),i=document.getElementById(`btnSaveModalBudget`),a=document.getElementById(`inputModalBudget`),o=()=>{a.value=$.budgetLimit,n.classList.add(`active`)};e.addEventListener(`click`,o),t.addEventListener(`click`,o),r.addEventListener(`click`,()=>{n.classList.remove(`active`)}),i.addEventListener(`click`,()=>{let e=Number(a.value);e>0&&($.budgetLimit=e,b.saveBudget(e),CZ(),n.classList.remove(`active`),pZ(e),UZ(`Batas anggaran berhasil diperbarui & disinkronkan!`,`success`))}),n.querySelectorAll(`.preset-chip`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.getAttribute(`data-preset`);t&&(a.value=t)})}),document.getElementById(`btnHelpPwa`).addEventListener(`click`,()=>{UZ(`Aplikasi PWA Siap! Sinkronisasi otomatis ke Cloud Firestore aktif.`,`success`)})}function kZ(){let e=document.getElementById(`cartItemsContainer`);e.addEventListener(`click`,e=>{let t=e.target.closest(`.btn-step-plus`),n=e.target.closest(`.btn-step-minus`),r=e.target.closest(`.btn-delete-item`),i=e.target.closest(`.btn-edit-item`);t?AZ(t.getAttribute(`data-id`),1):n?AZ(n.getAttribute(`data-id`),-1):r?MZ(r.getAttribute(`data-id`)):i&&FZ(i.getAttribute(`data-id`))}),e.addEventListener(`change`,e=>{e.target.classList.contains(`item-qty-input`)&&jZ(e.target.getAttribute(`data-id`),Math.max(1,parseInt(e.target.value,10)||1))}),document.getElementById(`btnClearCart`).addEventListener(`click`,()=>{confirm(`Kosongkan semua barang di troli?`)&&($.cart=[],b.saveCart($.cart),SZ(),dZ([]),UZ(`Troli telah dikosongkan.`,`warning`))}),document.getElementById(`btnEmptyAdd`).addEventListener(`click`,()=>{PZ()}),document.getElementById(`fabQuickAdd`).addEventListener(`click`,()=>{PZ()})}function AZ(e,t){let n=$.cart.find(t=>t.id===e);if(!n)return;let r=(Number(n.qty)||1)+t;r<=0?MZ(e):(n.qty=r,b.saveCart($.cart),SZ(),dZ($.cart))}function jZ(e,t){let n=$.cart.find(t=>t.id===e);n&&(n.qty=Math.max(1,t),b.saveCart($.cart),SZ(),dZ($.cart))}function MZ(e){$.cart=$.cart.filter(t=>t.id!==e),b.saveCart($.cart),SZ(),dZ($.cart),UZ(`Barang dihapus dari troli`,`warning`)}function NZ(){let e=document.getElementById(`itemModalBackdrop`),t=document.getElementById(`btnCloseItemModal`),n=document.getElementById(`itemForm`),r=document.getElementById(`inputItemName`),i=document.getElementById(`inputItemPrice`),a=document.getElementById(`inputItemQty`),o=document.getElementById(`inputItemDiscount`),s=document.getElementById(`selectDiscountType`),c=document.getElementById(`inputItemCategory`),l=document.getElementById(`inputItemUnit`),u=document.getElementById(`inputItemNote`);document.getElementById(`editItemId`);let d=document.getElementById(`modalQtyMinus`),f=document.getElementById(`modalQtyPlus`),p=document.getElementById(`categoryPillSelector`);p.innerHTML=IP.map(e=>`
     <span class="pill-option ${e.id===`Bahan Pokok`?`selected`:``}" data-cat="${e.id}">
       ${e.label}
     </span>

@@ -665,59 +665,6 @@
        ======================================================================== -->
 
 
-  <!-- ========================================================================
-       MODAL: KONFIRMASI HAPUS AMAN TROLIE BELANJA (SAFE DELETE CONFIRMATION)
-       ======================================================================== -->
-  <div class="modal-backdrop" id="clearCartModalBackdrop">
-    <div class="modal-sheet" style="max-width:400px;">
-      <div class="modal-handle-bar"></div>
-      <div class="modal-sheet-header" style="background:#fff5f5; border-bottom:1px solid #fed7d7;">
-        <div style="display:flex; align-items:center; gap:8px;">
-          <div style="width:32px; height:32px; border-radius:50%; background:#fee2e2; display:flex; align-items:center; justify-content:center; color:#dc2626;">
-            <i data-lucide="alert-triangle" style="width:18px; height:18px;"></i>
-          </div>
-          <div>
-            <h3 class="modal-title" style="color:#991b1b; font-size:0.95rem;">Konfirmasi Hapus Aman</h3>
-            <span style="font-size:0.7rem; color:#b91c1c;">Pencegah Klik Tidak Sengaja</span>
-          </div>
-        </div>
-        <button class="modal-close-btn" id="btnCloseClearCartModal" title="Tutup Modal">
-          <i data-lucide="x" style="width:20px; height:20px;"></i>
-        </button>
-      </div>
-
-      <div class="modal-sheet-content" style="padding:16px 18px; gap:12px;">
-        <div style="font-size:0.85rem; color:#201f1e; line-height:1.5;">
-          Apakah Anda yakin ingin <strong>menghapus seluruh belanjaan</strong> dari troli?
-        </div>
-
-        <div id="clearCartSummaryBox" style="background:#f8f9fa; border:1px solid #e1dfdd; border-radius:4px; padding:10px 12px; font-size:0.78rem; color:#495057;">
-          <div style="display:flex; justify-content:space-between; margin-bottom:4px;">
-            <span>Total Barang Terhapus:</span>
-            <strong id="clearCartCountText" style="color:#201f1e;">0 Item</strong>
-          </div>
-          <div style="display:flex; justify-content:space-between;">
-            <span>Total Nilai Belanja:</span>
-            <strong id="clearCartTotalValueText" style="color:#dc2626;">Rp 0</strong>
-          </div>
-        </div>
-
-        <p style="font-size:0.73rem; color:#605e5c; margin:0;">
-          ⚠️ <em>Tindakan ini akan mengosongkan troli belanja secara seketika dan tidak dapat dibatalkan.</em>
-        </p>
-
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:6px;">
-          <button type="button" class="btn-secondary-sm" id="btnCancelClearCart" style="height:42px; font-weight:700;">
-            <i data-lucide="x" style="width:15px; height:15px;"></i> Batal
-          </button>
-          <button type="button" class="btn-submit-modal" id="btnConfirmClearCart" style="height:42px; background:#dc2626; border-color:#b91c1c; color:#fff; font-weight:700;">
-            <i data-lucide="trash-2" style="width:15px; height:15px;"></i> Ya, Kosongkan
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- TOAST NOTIFICATION CONTAINER -->
   <div class="toast-container" id="toastContainer"></div>
 

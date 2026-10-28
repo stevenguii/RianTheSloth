@@ -1,4 +1,3 @@
-import fs from 'fs';
 /**
  * Comprehensive Automated Test Suite & Feature Verification
  * P13 - Daily Test 2 (DT2): Evaluasi Smart Grocery Tracker (RianTheSloth)
@@ -187,21 +186,6 @@ console.log('\n🛒 TEST 8: Sesi Belanja (Lokasi & Selector Tanggal)');
   assert(typeof DEFAULT_SHOPPING_SESSION.date === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(DEFAULT_SHOPPING_SESSION.date), 'Sesi.2: Tanggal belanja aktif format date picker valid (YYYY-MM-DD)', `Tanggal: ${DEFAULT_SHOPPING_SESSION.date}`);
   const histSample = DEFAULT_SHOPPING_HISTORY[0];
   assert(histSample.location === 'Lotte Mart Grocery - Puri Indah', 'Sesi.3: Riwayat transaksi merekam lokasi Lotte Mart Grocery - Puri Indah', `Lokasi Riwayat: ${histSample.location}`);
-}
-
-// ---------------------------------------------------------------------
-// TEST SUITE 9: Konfirmasi Hapus Aman (Pencegah Klik Tidak Sengaja)
-// ---------------------------------------------------------------------
-console.log('\n🛡️ TEST 9: Konfirmasi Hapus Aman (Safe Delete Confirmation)');
-{
-  const htmlContent = fs.readFileSync('index.html', 'utf8');
-  const jsContent = fs.readFileSync('assets/index-_nzKsLR2.js', 'utf8');
-
-  assert(htmlContent.includes('id="clearCartModalBackdrop"'), 'HapusAman.1: Modal konfirmasi hapus aman terpasang di DOM', 'Elemen: #clearCartModalBackdrop');
-  assert(htmlContent.includes('id="btnCancelClearCart"'), 'HapusAman.2: Tombol Batal pencegah klik tidak sengaja tersedia', 'Tombol: #btnCancelClearCart');
-  assert(htmlContent.includes('id="btnConfirmClearCart"'), 'HapusAman.3: Tombol konfirmasi eksekusi hapus aman tersedia', 'Tombol: #btnConfirmClearCart');
-  assert(jsContent.includes('clearCartModalBackdrop') && jsContent.includes('classList.add("active")'), 'HapusAman.4: Event listener membuka modal konfirmasi alih-alih langsung menghapus', 'Modal aktif saat diklik');
-  assert(jsContent.includes('btnCancelClearCart') && jsContent.includes('classList.remove("active")'), 'HapusAman.5: Pembatalan menutup modal dan menjaga data troli tetap utuh', 'Safe Cancel Guard');
 }
 
 console.log(`🎉 HASIL PENGUJIAN: ${passedTests} / ${totalTests} PENGUJIAN LULUS (100%)`);
