@@ -5,7 +5,8 @@ const STORAGE_KEYS = {
   CART: 'rian_groceries_cart_v1',
   HISTORY: 'rian_groceries_history_v1',
   BUDGET: 'rian_groceries_budget_v1',
-  SETTINGS: 'rian_groceries_settings_v1'
+  SETTINGS: 'rian_groceries_settings_v1',
+  SESSION: 'rian_groceries_session_v1'
 };
 
 /**
@@ -251,5 +252,33 @@ export function importDatabaseJSON(jsonStr) {
     return { success: true };
   } catch (err) {
     return { success: false, error: err.message };
+  }
+}
+
+
+/**
+ * Mendapatkan konfigurasi sesi belanja saat ini
+ */
+export function getShoppingSession() {
+  const defaultSession = {
+    location: "Lotte Mart Grocery - Puri Indah",
+    date: new Date().toISOString().split('T')[0]
+  };
+  try {
+    const raw = localStorage.getItem(STORAGE_KEYS.SESSION);
+    return raw ? JSON.parse(raw) : defaultSession;
+  } catch {
+    return defaultSession;
+  }
+}
+
+/**
+ * Menyimpan konfigurasi sesi belanja
+ */
+export function saveShoppingSession(session) {
+  try {
+    localStorage.setItem(STORAGE_KEYS.SESSION, JSON.stringify(session));
+  } catch (err) {
+    console.error('Failed saving shopping session:', err);
   }
 }
