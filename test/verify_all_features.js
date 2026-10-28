@@ -12,7 +12,6 @@ import {
 } from '../js/calculator.js';
 
 import {
-  DEFAULT_SHOPPING_SESSION,
   DEFAULT_HISTORY_CATALOG,
   DEFAULT_SHOPPING_HISTORY,
   CATEGORIES,
@@ -177,16 +176,5 @@ console.log('\n⚖️ TEST 7: Duel Satuan (Unit Price Battle Dilema Minyak)');
 }
 
 console.log('\n================================================================');
-// ---------------------------------------------------------------------
-// TEST SUITE 8: Sesi Belanja (Lokasi & Selector Tanggal / Date Picker)
-// ---------------------------------------------------------------------
-console.log('\n🛒 TEST 8: Sesi Belanja (Lokasi & Selector Tanggal)');
-{
-  assert(DEFAULT_SHOPPING_SESSION.location === 'Lotte Mart Grocery - Puri Indah', 'Sesi.1: Lokasi belanja tervalidasi disetel ke Lotte Mart Grocery - Puri Indah', `Lokasi: ${DEFAULT_SHOPPING_SESSION.location}`);
-  assert(typeof DEFAULT_SHOPPING_SESSION.date === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(DEFAULT_SHOPPING_SESSION.date), 'Sesi.2: Tanggal belanja aktif format date picker valid (YYYY-MM-DD)', `Tanggal: ${DEFAULT_SHOPPING_SESSION.date}`);
-  const histSample = DEFAULT_SHOPPING_HISTORY[0];
-  assert(histSample.location === 'Lotte Mart Grocery - Puri Indah', 'Sesi.3: Riwayat transaksi merekam lokasi Lotte Mart Grocery - Puri Indah', `Lokasi Riwayat: ${histSample.location}`);
-}
-
 console.log(`🎉 HASIL PENGUJIAN: ${passedTests} / ${totalTests} PENGUJIAN LULUS (100%)`);
 console.log('================================================================\n');

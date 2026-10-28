@@ -120,73 +120,6 @@
             <button class="btn-pwa-install" id="btnInstallPwa">Pasang</button>
           </div>
 
-          <!-- SESI BELANJA: LOKASI & TANGGAL AKTIF (DATE PICKER) -->
-          <div class="shopping-session-card" id="shoppingSessionCard">
-            <div class="session-card-header">
-              <div class="session-header-left">
-                <div class="session-header-icon-box">
-                  <i data-lucide="store" style="width:16px; height:16px; color:#107c41;"></i>
-                </div>
-                <div>
-                  <h3 class="session-card-title">Sesi Belanja</h3>
-                  <span class="session-card-subtitle">Lokasi & Tanggal Belanja Aktif</span>
-                </div>
-              </div>
-              <span class="session-active-pill">
-                <span class="session-pulse-dot"></span>
-                SESI AKTIF
-              </span>
-            </div>
-
-            <div class="session-controls-grid">
-              <!-- Lokasi Belanja: Disetel ke Lotte Mart Grocery - Puri Indah -->
-              <div class="session-field">
-                <label class="session-field-label" for="inputSessionLocation">
-                  <i data-lucide="map-pin" style="width:13px; height:13px; color:#107c41;"></i>
-                  <span>Lokasi Belanja:</span>
-                </label>
-                <div class="session-input-group">
-                  <input type="text" 
-                         id="inputSessionLocation" 
-                         class="session-input-control" 
-                         value="Lotte Mart Grocery - Puri Indah" 
-                         list="supermarketLocations"
-                         placeholder="Lokasi Supermarket...">
-                  <datalist id="supermarketLocations">
-                    <option value="Lotte Mart Grocery - Puri Indah"></option>
-                    <option value="Lotte Mart - Gandaria City"></option>
-                    <option value="Lotte Mart - Kelapa Gading"></option>
-                    <option value="Superindo - Puri Indah"></option>
-                    <option value="Hypermart - Puri Indah Mall"></option>
-                    <option value="Grand Lucky - Superstore"></option>
-                  </datalist>
-                </div>
-                <div class="session-status-chip" id="sessionLocationBadge">
-                  <i data-lucide="check-circle-2" style="width:12px; height:12px; color:#107c41;"></i>
-                  <span id="sessionLocationBadgeText">Disetel: Lotte Mart Grocery - Puri Indah</span>
-                </div>
-              </div>
-
-              <!-- Tanggal Belanja Aktif: Selector Tanggal (Date Picker) -->
-              <div class="session-field">
-                <label class="session-field-label" for="inputSessionDate">
-                  <i data-lucide="calendar" style="width:13px; height:13px; color:#107c41;"></i>
-                  <span>Tanggal Belanja Aktif:</span>
-                </label>
-                <div class="session-input-group">
-                  <input type="date" 
-                         id="inputSessionDate" 
-                         class="session-input-control session-date-picker" 
-                         value="2026-10-28">
-                </div>
-                <div class="session-status-chip" id="sessionDateBadge">
-                  <i data-lucide="calendar-check" style="width:12px; height:12px; color:#107c41;"></i>
-                  <span id="sessionDateBadgeText">Rabu, 28 Oktober 2026</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
           <div class="cart-summary-banner">
             <div class="cart-count-badge">
               <i data-lucide="shopping-bag" style="width:16px; height:16px; color:var(--color-primary-light);"></i>
@@ -547,7 +480,7 @@
       <div class="modal-sheet-content" style="gap:14px;">
         <div class="digital-receipt-box">
           <div class="receipt-header">
-            <h3 id="receiptStoreName">LOTTE MART GROCERY - PURI INDAH</h3>
+            <h3>SUPERMARKET MR. RIAN</h3>
             <p>Smart Grocery & Budget Safety Tracker</p>
             <p id="receiptDateString">07 Oktober 2026 • 11:30</p>
           </div>

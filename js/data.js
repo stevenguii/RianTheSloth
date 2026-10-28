@@ -102,17 +102,11 @@ export const DEFAULT_HISTORY_CATALOG = [
   }
 ];
 
-export const DEFAULT_SHOPPING_SESSION = {
-  location: "Lotte Mart Grocery - Puri Indah",
-  date: "2026-10-28"
-};
-
 export const DEFAULT_SHOPPING_HISTORY = [
   {
     id: "hist-2026-09",
     date: "2026-09-01",
     monthName: "September 2026",
-    location: "Lotte Mart Grocery - Puri Indah",
     budgetCap: 300000,
     totalSpent: 269000,
     itemsCount: 8,
