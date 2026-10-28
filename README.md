@@ -40,6 +40,7 @@ Aplikasi pelacak belanja supermarket dan batas aman anggaran bulanan (*Safety Ca
 - ✅ **F-05**: Pengendali anggaran saku (*Budget Safety Cap*) dengan data bar dinamis.
 - ✅ **F-06**: Struk digital dan sinkronisasi database patokan harga.
 - ✅ **Sesi Belanja**: Lokasi belanja disetel ke **Lotte Mart Grocery - Puri Indah** dan tanggal belanja aktif dipilih menggunakan selector tanggal (*date picker*).
+- ✅ **Konfirmasi Hapus Aman**: Tombol hapus seluruh belanjaan dilengkapi modal konfirmasi pencegah klik tidak sengaja, menampilkan ringkasan item & nilai belanja sebelum troli dikosongkan.
 
 ---
 
